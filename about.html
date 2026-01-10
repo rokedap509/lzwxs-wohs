@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="imgs/favicon.png" type="image/png">
+    <title>介绍-麟趾文学社</title>
+    <style>
+        @font-face {
+            font-family: 'SongFont'; 
+            src: url('fonts/font.otf') format('opentype'); 
+            font-weight: normal;
+            font-style: normal;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'SongFont', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f7f5f0;
+            color: #2c3e50;
+            line-height: 1.8;
+            padding-bottom: 60px;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin: 50px 0 30px;
+            color: #2c3e50;
+            font-size: 32px;
+            border-bottom: 2px solid #ddc871;
+            padding-bottom: 15px;
+            font-weight: normal;
+        }
+        
+        .foreword-section {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+            margin: 30px 0;
+        }
+        
+        .foreword-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .foreword-title {
+            font-size: 26px;
+            color: #ddc871;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+        
+        .foreword-author {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .foreword-content {
+            font-size: 16px;
+            text-indent: 2em;
+            margin-bottom: 20px;
+            line-height: 2;
+        }
+        
+        /* 展开/合并按钮样式 */
+        .toggle-btn {
+            display: block;
+            margin: 0 auto;
+            padding: 10px 20px;
+            background-color: #ddc871;
+            color: #2c3e50;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+        
+        .toggle-btn:hover {
+            background-color: #c9b463;
+            transform: translateY(-2px);
+        }
+        
+        /* 内容容器样式 - 减小折叠高度 */
+        .foreword-content-wrapper {
+            max-height: 280px; /* 折叠后只显示约1段多一点文字 */
+            overflow: hidden;
+            transition: max-height 0.6s ease;
+            position: relative;
+        }
+        
+        /* 添加渐变遮罩，提示下方有更多内容 */
+        .foreword-content-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(to bottom, transparent, white);
+            pointer-events: none;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+        
+        .foreword-content-wrapper.expanded::after {
+            opacity: 0;
+        }
+        
+        .foreword-content-wrapper.expanded {
+            max-height: 3000px; /* 展开后的最大高度 */
+        }
+        
+        /* 分割线样式 */
+        .divider {
+            margin: 50px 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #ddc871, transparent);
+            border: none;
+        }
+        
+        /* 联系信息样式 */
+        .contact-section {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+        
+        .contact-title {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: normal;
+            border-bottom: 1px solid #f0e9d7;
+            padding-bottom: 15px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 30px;
+        }
+        
+        .contact-item {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 20px;
+            background-color: #faf8f3;
+            border-radius: 8px;
+        }
+        
+        .contact-item h4 {
+            font-size: 18px;
+            color: #ddc871;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+        
+        .contact-item p {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .contact-item .highlight {
+            color: #ddc871;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            
+            .section-title {
+                font-size: 28px;
+                margin: 30px 0 20px;
+            }
+            
+            .foreword-section {
+                padding: 25px;
+            }
+            
+            .foreword-title {
+                font-size: 22px;
+            }
+            
+            .foreword-content-wrapper {
+                max-height: 220px; /* 移动端折叠后更短 */
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .contact-item {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <section>
+            <h2 class="section-title">发刊词</h2>
+            <div class="foreword-section">
+                <div class="foreword-header">
+                    <h3 class="foreword-title">麟趾文学社</h3>
+                    <span class="foreword-author">刘文元</span>
+                </div>
+                
+                <!-- 内容容器 - 用于控制展开/合并 -->
+                <div class="foreword-content-wrapper" id="forewordContent">
+                    <div class="foreword-content">
+                       青春不止有纸笔间的演算与赛场中的奔跑，更应有文字里的山河与笔墨间的赤诚。或许你曾在晨光熹微时，为一句诗心潮澎湃；或许你曾在暮色四合时，因一段故事辗转难眠——这些藏在心底的悸动、对世界的追问、对生活的感悟，都值得被文字妥帖安放。麟趾文学社，便是为这份热爱搭建的栖息地：在这里，我们可以以笔为舟，漫游于古典诗词的烟雨江南；也能以文为镜，映照出现实世界的鲜活百态；可以围坐探讨一篇文章的肌理，也能独自书写一段无人知晓的心事。未来的日子里，愿麟趾文学社能成为澳新校园里的一方精神角落：让喜欢文字的同学在这里遇见同频的伙伴，让迷茫探索的同学在这里找到表达的出口，让每一份对文学的热爱都能生根、发芽，最终长成参天大树。也愿这本文集，能成为我们青春的见证——多年后再翻开，仍能想起此刻在澳新校园里，我们曾以文字为翼，共同追逐过那束名为“热爱”的光。从此，麟趾鸣春，文心逐光。愿我们以笔为犁，耕耘岁月；以文为炬，照亮青春。
+                    </div>
+                    <div class="foreword-content">
+                       盼望着，盼望着，武汉澳新高级中学文学社刊物的墨香如期而至。我谨以心为笔，以思为砚，为这方青春的文学园地寄予几分期许。文字是思想的舟楫，承载着人类最深刻的情感与智慧。在你们执笔的刹那，不仅是辞藻的铺陈，更是灵魂的对话。愿我们以赤子之心观照世界，于平凡处见诗意，在细微处悟真知。让每一段书写既是对经典的致敬，亦是对创新的探索。愿我们在文字中涵养“铁肩担道义”的使命感，锤炼“妙手著文章”的创造力，既要有“仰观宇宙之大”的胸怀，也要有“俯察品类之盛”的敏锐。让文学成为照亮理想的光炬，成为连接你我与世界的桥梁。期待我们以文弘道，以笔耕心，在春秋代序中书写属于澳新人的精神史诗！
+                    </div>
+                    <div class="foreword-content">
+                       观麟趾于《周南》，识孔昭之大义。《诗》云：“麟之趾，振振公子”。 麟为仁兽，趾喻才济。麟趾见世，昌盛随之；麟趾所化，彧彧多士。典谟训诰，实蕴其仁，以文弘义；托名“麟趾”，志在毓英，鱼贯雁比。文可经国，岂为雕虫之技？上以载道，下宣余情，中接厚谊。文之为用，岂不大矣！君子以文会友，以友辅仁，正守文脉之柢。然文心载道，以资藻绮。今结社传薪，上赓风雅，下彰才艺。效麟雍容，摒今之伪饰；法趾温润，斥文之锋戾。以仁为胄，以知为楫。勤耕不辍，琢玉成器。经之营之，不日成之。且麟之为物，应时而现，贵之以稀。大音希闻，大雅难企。今众声喧阗，珠目混迹。惟若麟趾振振，抱雕龙之志，执灵蛇之珠，奏黄钟大吕，才成锦帙。河马垂图，以待时圣；洛水现书，必资俊逸。微星共烛，翰海熠熠。永葆素心，常怀寸尺。怀瑾握玉，气盛言宜。如是，麟趾之迹，终成垂天之翼。是为发刊，以勖同道。
+                    </div>
+                </div>
+                
+                <!-- 展开/合并按钮 -->
+                <button class="toggle-btn" id="toggleBtn">展开全文</button>
+            </div>
+            
+            <!-- 分割线 -->
+            <hr class="divider">
+            
+            <!-- 投稿和联系信息 -->
+            <section class="contact-section">
+                <h3 class="contact-title">投稿须知 | 联系我们</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h4>投稿要求</h4>
+                        <p>• 题材不限，内容积极向上</p>
+                        <p>• 纸质投稿字迹清晰工整</p>
+                        <p>• 字数：议论文/诗歌 300-1500字</p>
+                        <p>• 原创作品，不得抄袭他人作品</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>投稿方式</h4>
+                        <p>邮箱投稿：<span class="highlight">lwy18372234563@163.com</span></p>
+                        <p>标题：文章标题+班级+姓名</p>
+                        <p>段落清晰</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>联系我们</h4>
+                        <p>指导老师：刘老师、陈老师</p>
+                        <p>位置：2楼、3楼办公室或教务处</p>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </div>
+
+    <script>
+        // 展开/合并功能实现
+        const toggleBtn = document.getElementById('toggleBtn');
+        const forewordContent = document.getElementById('forewordContent');
+        
+        toggleBtn.addEventListener('click', function() {
+            // 切换展开/合并状态
+            forewordContent.classList.toggle('expanded');
+            
+            // 切换按钮文字
+            if (forewordContent.classList.contains('expanded')) {
+                toggleBtn.textContent = '收起全文';
+            } else {
+                toggleBtn.textContent = '展开全文';
+            }
+        });
+    </script>
+</body>
+</html>

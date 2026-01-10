@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="imgs/favicon.png" type="image/png">
+    <title>麟趾文学社-更多精彩活动</title>
+    <style>
+        @font-face {
+            font-family: 'SongFont'; 
+            src: url('fonts/font.otf') format('opentype'); 
+            font-weight: normal;
+            font-style: normal;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'SongFont', Arial, sans-serif;
+        }
+        body {
+            background-color: #f7f5f0;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1400px; 
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .page-title {
+            font-size: 2.2rem;
+            color: #8c5a3e;
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        .event-category {
+            margin-bottom: 40px;
+        }
+        .event-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+        .event-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 25px 35px; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 3px solid #8c5a3e;
+            width: 100%;
+            max-width: 800px; 
+        }
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .event-name {
+            font-size: 1.3rem; 
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+            border-bottom: 1px dashed #eee;
+            padding-bottom: 12px;
+        }
+        .event-info {
+            font-size: 1.05rem; 
+            color: #666;
+            margin: 12px 0;
+            line-height: 1.7;
+            display: flex; 
+        }
+        .event-info::before {
+            content: "•"; 
+            color: #8c5a3e;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        .event-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #8c5a3e;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 1.05rem;
+        }
+        .event-link:hover {
+            text-decoration: underline;
+            color: #664a36;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-title">更 多 活 动</h1>
+            <div class="event-category">
+                <div class="event-list">
+                    <div class="event-card">
+                        <h4 class="event-name">大型联考优秀作文展</h4>
+                        <p class="event-info">活动日期：2025年9月月考后</p>
+                        <p class="event-info">活动地址：武汉澳新高级中学</p>
+                        <p class="event-info">活动流程：联考优秀范文展示学习</p>
+                        <a href="https://mp.weixin.qq.com/s/si1kUqwEraQsR7ihbb35Zg" class="event-link" target="_blank">查看详情 →</a>
+                    </div>
+                    <div class="event-card">
+                        <h4 class="event-name">教师佳作展</h4>
+                        <p class="event-info">活动日期：2025年12月31日</p>
+                        <p class="event-info">活动地址：武汉澳新高级中学</p>
+                        <p class="event-info">活动内容：欣赏老师们的作品</p>
+                        <a href="https://mp.weixin.qq.com/s/plttbX38hsTNtrpN3U7KEw" class="event-link" target="_blank">查看详情 →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

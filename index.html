@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="imgs/favicon.png" type="image/png">
+    <title>麟趾文学社 | 武汉澳新高级中学</title>
+    <style>
+        @font-face {
+            font-family: 'SongFont'; 
+            src: url('fonts/font.otf') format('opentype'); 
+            font-weight: normal;
+            font-style: normal;
+}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'SongFont', Arial, sans-serif; 
+        }
+
+        body {
+            background-color: #f9f7f5;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        .header-banner {
+            width: 100%;
+            height: 50vh;
+            background-image: url('imgs/header.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-bottom: 2em solid #c8a985;
+            position: relative;
+        }
+
+        .main-title {
+            text-align: center;
+            margin: 2em auto 1.5em; 
+            font-size: 2.4rem;
+            color: #4a3c2e;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+        }
+
+        .divider {
+            width: 90%;
+            height: 1px;
+            background-color: #d4c3b3;
+            margin: 0 auto 3em; 
+        }
+
+        .intro-section {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto 4em;
+            display: flex;
+            flex-wrap: wrap; 
+            gap: 3em;
+            align-items: center;
+        }
+
+        .intro-text {
+            flex: 1 1 500px; 
+        }
+
+        .intro-text h3 {
+            font-size: 1.8rem;
+            color: #5a4b3d;
+            margin-bottom: 1em;
+            border-left: 4px solid #c8a985;
+            padding-left: 0.8em;
+        }
+
+        .intro-text p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 1em;
+            text-indent: 2em; 
+        }
+
+        .about-link {
+            display: inline-block;
+            margin-top: 1em;
+            color: #c8a985;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            padding-bottom: 2px;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .about-link:hover {
+            color: #a68a6d;
+            border-bottom: 1px solid #a68a6d;
+        }
+
+        .intro-image {
+            flex: 1 1 400px; 
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .intro-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .intro-image img:hover {
+            transform: scale(1.02); 
+        }
+
+        .activity-title {
+            text-align: center;
+            font-size: 1.9rem;
+            color: #4a3c2e;
+            margin-bottom: 2.5em;
+            letter-spacing: 0.05em;
+        }
+
+        .works-section {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto 4em;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5em;
+            justify-content: center;
+            align-items: stretch; 
+        }
+
+        .work-card {
+            flex: 1 1 300px; 
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .work-card:hover {
+            transform: translateY(-8px); 
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+
+        .work-img {
+            width: 100%;
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0; 
+        }
+
+        .work-content {
+            padding: 2em;
+            flex: 1;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .work-content h4 {
+            font-size: 1.4rem;
+            color: #4a3c2e;
+            margin-bottom: 1em;
+            text-align: center;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .work-content p {
+            font-size: 1rem;
+            color: #666;
+            text-align: center;
+            line-height: 1.7;
+            margin-bottom: 1.5em;
+            height: 80px; 
+            display: flex;
+            align-items: center;
+            justify-content: center; 
+            overflow-y: auto; 
+            scrollbar-width: none; 
+        }
+        
+        .work-content p::-webkit-scrollbar {
+            display: none;
+        }
+
+        .activity-detail-link {
+            display: inline-block;
+            margin: 0 auto; 
+            color: #c8a985;
+            font-size: 0.95rem;
+            padding: 0.5em 1.2em;
+            border: 1px solid #c8a985;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            margin-top: auto; 
+        }
+
+        .activity-detail-link:hover {
+            background-color: #c8a985;
+            color: #fff;
+        }
+
+        .more-activities {
+            text-align: center;
+            margin: 0 auto 6em;
+        }
+
+        .more-btn {
+            display: inline-block;
+            padding: 0.8em 2.2em;
+            background-color: #4a3c2e;
+            color: #fff;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            letter-spacing: 0.08em;
+            box-shadow: 0 4px 10px rgba(74, 60, 46, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .more-btn:hover {
+            background-color: #3a2f23;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(74, 60, 46, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 1.8rem;
+                margin: 1.5em auto 1em;
+            }
+
+            .intro-section {
+                gap: 2em;
+            }
+
+            .intro-text h3 {
+                font-size: 1.5rem;
+            }
+
+            .intro-text p {
+                font-size: 1rem;
+            }
+
+            .activity-title {
+                font-size: 1.6rem;
+                margin-bottom: 2em;
+            }
+
+            .works-section {
+                gap: 2em;
+            }
+
+            .work-card {
+                flex: 1 1 100%; 
+            }
+
+            .more-btn {
+                padding: 0.7em 1.8em;
+                font-size: 1rem;
+            }
+        }
+.footer {
+    width: 100%;
+    margin-top: 6em;
+    padding: 3em 0;
+    background-color: #f5f2ef;
+}
+
+.footer-top {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2em 0;
+    position: relative;
+}
+
+.footer-vertical-divider {
+    width: 1px;
+    height: 120px;
+    background-color: #d4c3b3;
+    margin: 0 5em; 
+}
+
+.footer-domains {
+    text-align: left;
+}
+
+.footer-domains h5 {
+    font-size: 1.2rem;
+    color: #4a3c2e;
+    margin-bottom: 1em;
+    letter-spacing: 0.05em;
+}
+
+.footer-domains ul {
+    list-style: none;
+}
+
+.footer-domains li {
+    margin-bottom: 0.8em;
+    font-size: 1rem;
+    color: #666;
+}
+
+.footer-domains a {
+    transition: color 0.3s ease;
+}
+
+.footer-domains a:hover {
+    color: #c8a985;
+}
+
+.footer-qrcode {
+    text-align: center;
+}
+
+.footer-qrcode img {
+    width: 120px;
+    height: 120px;
+    border: 2px solid #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    margin-bottom: 1em;
+}
+
+.footer-qrcode p {
+    font-size: 0.9rem;
+    color: #666;
+    letter-spacing: 0.03em;
+}
+
+.footer-horizontal-divider {
+    width: 80%;
+    height: 1px;
+    background-color: #d4c3b3;
+    margin: 0 auto 2em;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-bottom: 1em;
+}
+
+.footer-bottom p {
+    font-size: 1rem;
+    color: #555;
+    letter-spacing: 0.05em;
+    line-height: 1.8;
+}
+
+
+@media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column; 
+    }
+
+    .footer-vertical-divider {
+        display: none; 
+        margin: 1.5em 0;
+    }
+
+    .footer-domains {
+        margin-bottom: 2em;
+    }
+
+    .footer-vertical-divider {
+        height: 80px;
+        margin: 0 3em;
+    }
+
+    .footer-domains h5 {
+        font-size: 1rem;
+    }
+
+    .footer-domains li {
+        font-size: 0.9rem;
+    }
+
+    .footer-qrcode img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .footer-qrcode p {
+        font-size: 0.8rem;
+    }
+
+    .footer-bottom p {
+        font-size: 0.9rem;
+    }
+}
+    </style>
+</head>
+<body>
+    <header class="header-banner"></header>
+    <h1 class="main-title">麟趾文学社 · 武汉澳新高级中学</h1>
+    <div class="divider"></div>
+    <section class="intro-section">
+        <div class="intro-text">
+            <h3>关于我们</h3>
+            <p>麟趾文学社成立于2025年，是由澳新语文组老师们组建的文艺社群。我社以让每个同学爱上语文为宗旨，致力于为文学爱好者提供一个交流、创作、成长的平台。</p>
+            <p>在这里，你可以分享原创诗歌、散文、小说，参与读书分享会、写作比赛、线下采风等活动；我们相信文字的力量，坚持用真诚的笔触记录生活，用温暖的交流传递热爱。</p>
+            <p>无论你是资深创作者，还是初涉文坛的新手，只要你热爱文字，愿意表达，麟趾文学社都将是你心灵的栖息地。</p>
+            <p>更多信息 | 投稿 | 联系我们 请点击下方↓ ↓ ↓</p>
+            <a href="about.html" target="_blank" class="about-link">了解更多 →</a>
+        </div>
+        <div class="intro-image">
+            <img src="imgs/info.png" alt="Logo">
+        </div>
+    </section>
+    <div class="divider"></div>
+    <h2 class="activity-title">近期活动 · 与文字赴约</h2>
+    <section class="works-section">
+        <div class="work-card">
+            <div class="work-img" style="background-image: url('imgs/jsyb.png');"></div>
+            <div class="work-content">
+                <h4>九三阅兵诗文比赛</h4>
+                <p>激发爱国情怀，展示文字的力量<br>时间：2025年9月26日</p>
+                <a href="https://mp.weixin.qq.com/s/HhlnmtM2-fJSLQkx3_6VdA" target="_blank" class="activity-detail-link">查看详情</a>
+            </div>
+        </div>
+        <div class="work-card">
+            <div class="work-img" style="background-image: url('imgs/lkzwx.jpg');"></div>
+            <div class="work-content">
+                <h4>高三联考优秀作文</h4>
+                <p>高三联考优秀作文选，向优秀学习<br>时间：2025年10月16日</p>
+                <a href="https://mp.weixin.qq.com/s/SA7aqyHK8Pu6nyMDrnyOPg" target="_blank" class="activity-detail-link">查看详情</a>
+            </div>
+        </div>
+        <div class="work-card">
+            <div class="work-img" style="background-image: url('imgs/cz.png');"></div>
+            <div class="work-content">
+                <h4>征文大赛校内作品选刊</h4>
+                <p>洪山区“中华魂-弘扬长征精神”征文比赛<br>时间：2025年11月3日</p>
+                <a href="https://mp.weixin.qq.com/s/2A92mbsJVN-2Hpee9CqhuQ" target="_blank" class="activity-detail-link">查看详情</a>
+            </div>
+        </div>
+    </section>
+    <div class="more-activities">
+        <a href="events.html" target="_blank" class="more-btn">更多活动</a>
+    </div>
+   
+<footer class="footer">
+   
+    <div class="footer-top">
+       
+        <div class="footer-domains">
+            <h5>备用域名</h5>
+            <ul>
+                <li><a href="https://lzwxs.fyi" target="_blank">lzwxs.fyi</a></li>
+                <li><a href="https://lzwxs.qzz.io" target="_blank">lzwxs.qzz.io</a></li>
+                <li><a href="https://lzwxs.pages.dev" target="_blank">lzwxs.pages.dev</a></li>
+            </ul>
+        </div>
+
+       
+        <div class="footer-vertical-divider"></div>
+
+        <div class="footer-qrcode">
+            <img src="imgs/qr.png" alt="麟趾文学社官方二维码">
+            <p>官方微信公众号二维码</p>
+        </div>
+    </div>
+
+  
+    <div class="footer-horizontal-divider"></div>
+
+   
+    <div class="footer-bottom">
+        <p>本网站非官方页面，学生搭建，请以官方微信为准！</p>
+    </div>
+</footer>
+
+</body>
+</html>
